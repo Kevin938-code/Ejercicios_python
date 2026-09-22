@@ -18,3 +18,32 @@ class InversorSecuencia:
 invertido = InversorSecuencia()
 print(invertido.invertir_lista([1, 2, 3, 4, 5]))
 print(invertido.invertir_multiples([1, 2, 3], ['a', 'b', 'c']))
+
+
+print("------------------------------------------------------------")
+"""Ejercicio: Clase AnalizadorListas
+Crea una clase llamada AnalizadorListas que trabaje con varias listas de números.
+    1. mayor_lista(lista)
+Debe recibir una lista de números y retornar el número mayor, pero hay una condición:
+No puedes utilizar max().
+Debes encontrar el mayor utilizando un bucle manualmente.
+    2. analizar_multiples(*listas)
+Debe recibir varias listas y reutilizar mayor_lista() para encontrar el mayor de cada una."""
+
+class AnalizadorListas:
+    def mayor_lista(self, lista):
+        mayor = lista[0]
+        for numero in lista:
+            if numero > mayor:
+                mayor = numero
+        return mayor
+
+    def analizar_multiples(self, *listas):
+        diccionario_lista = {}
+        for lista in listas:
+            diccionario_lista[tuple(lista)]=self.mayor_lista(lista)
+        return diccionario_lista
+
+analizar = AnalizadorListas()
+print(analizar.mayor_lista([1,5,3,4]))
+print(analizar.analizar_multiples([1,5,3,4], [10,20,5],[5,7]))

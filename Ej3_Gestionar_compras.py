@@ -20,3 +20,42 @@ carrito.agregar_producto("bananas", 2.0)
 carrito.agregar_producto("naranjas", 4.0)
 print(carrito.total_carrito())
 print(carrito.articulos_por_rango(2.0, 3.5))
+
+print("-------------------------------------------")
+
+"""Ejercicio: Clase AgendaContactos
+Crea una clase llamada AgendaContactos que permita almacenar contactos y sus números telefónicos.
+    1. agregar_contacto(nombre, telefono)
+Debe guardar el contacto en un diccionario
+    2. contar_contactos()
+Debe retornar la cantidad de contactos almacenados.
+    3. buscar_por_inicial(inicial)
+Debe recibir una letra y retornar una lista con los nombres de los contactos que comienzan con esa letra.
+"""
+class AgendaContactos:
+    def __init__(self):
+        self.contactos = {}
+
+    def agregar_contacto(self, nombre, telefono):
+        self.contactos[nombre] = telefono
+
+    def contar_contactos(self):
+        return len(self.contactos)
+
+    def buscar_inicial(self, inicial):
+        iniciales = []
+        
+        for nombre in self.contactos:
+            if nombre.startswith(inicial):
+                iniciales.append(nombre)
+        return iniciales
+
+agendar = AgendaContactos()
+agendar.agregar_contacto("Jose", "0998177844")
+agendar.agregar_contacto("andres", "0990219139")
+agendar.agregar_contacto("anthony", "0988537893")
+print(agendar.contactos)
+print(agendar.contar_contactos())
+print(agendar.buscar_inicial("a"))
+
+
